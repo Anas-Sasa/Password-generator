@@ -66,29 +66,29 @@ def take_tokens_num():
     return is_valid
 
 # Function to create the password based on user's requested lengths
-def generate_passowrd(lenght_passowrd):
+def generate_passowrd(token_num):
     "Generate pass and append it to the passowrd_generated --> list"
 
     # Temporary list to hold password parts before mixing
     asked_pass = []
     
     # For each length the user gave us...
-    for num in lenght_passowrd:
+    for num in token_num:
 
         # If this is the first length = (characters)...
-        if  lenght_passowrd.index(num) == 0:
+        if  token_num.index(num) == 0:
 
             # Add random letters to our temporary list
             asked_pass.append(random.choices(string.ascii_letters, k= (num)))
 
         # If this the second length = (numbers)
-        if lenght_passowrd.index(num) == 1:
+        if token_num.index(num) == 1:
 
              # Add random numbers to our temporary list
             asked_pass.append(random.choices (string.digits, k= (num)))
 
         # If this the theerd length = (symbols)
-        if lenght_passowrd.index(num) == 2:
+        if token_num.index(num) == 2:
 
             # Add random symbols to our temporary list
             asked_pass.append(random.choices(string.punctuation, k= (num)))
@@ -134,7 +134,7 @@ while program_on:
             else:
 
                 # If everything checks out, generate the password!
-                generate_passowrd(lenght_passowrd= length_password)
+                generate_passowrd(token_num= length_password)
 
                 # Mix up the characters so they're not in order (letters, then numbers, then symbols)
                 random.shuffle(password_generated_list)
